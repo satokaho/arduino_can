@@ -15,7 +15,7 @@ set(0, 'defaultTextFontName', 'times');
 %             0.25 0.5 1 2 4 8 16 32 ...
 %             0.25 0.5 1 2 4 8 16 32];
 numset = [11 12 13 14 15 16 17];
-freqset = [0.25 0.5 1 2 4 8 16 ];
+freqset = [0.25 0.5 1 2 4 16];
 figure        
 gain = [];
 
@@ -26,12 +26,13 @@ for i_n = 1:length(numset)
     data(i_n).freq = freqset(i_n);
     for i_t = 30:length(Dataset(:,1))
         data(i_n).tout(i_t,1) = Dataset(i_t,1);
-        data(i_n).inputout(i_t,1) = Dataset(i_t,2);
+        %data(i_n).inputout(i_t,1) = Dataset(i_t,2);
         data(i_n).outputout(i_t,1) = Dataset(i_t,5);
     end
     
     
-    inputAmp = max(data(i_n).inputout);
+    %inputAmp = max(data(i_n).inputout);
+    inputAmp = 102.4;
     outputAmp = max(data(i_n).outputout);
     
    
@@ -40,11 +41,11 @@ for i_n = 1:length(numset)
     
 end
 
-    loglog([data(:).freq], gain, '-')
+    loglog([data(:).freq], gain, 'o-')
     %loglog(data(i_n).freq, outputAmp/inputAmp, 'o')
     
-    xlabel('frequency [rps]', 'interpreter', 'latex', 'Fontsize', 14);
-    ylabel('magnitude[dB]', 'interpreter', 'latex', 'Fontsize', 14);
+    xlabel('frequency [Hz]', 'interpreter', 'latex', 'Fontsize', 14);
+    ylabel('magnitude [dB]', 'interpreter', 'latex', 'Fontsize', 14);
     xlim([0.25,max(data(i_n).freq)]);
     
     
