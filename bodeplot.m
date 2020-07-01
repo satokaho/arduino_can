@@ -14,8 +14,8 @@ set(0, 'defaultTextFontName', 'times');
 % freqset = [0.25 0.5 1 2 4 8 16 ...
 %             0.25 0.5 1 2 4 8 16 32 ...
 %             0.25 0.5 1 2 4 8 16 32];
-numset = [11 12 13 14 15 16 17];
-freqset = [0.25 0.5 1 2 4 16];
+numset = [21 22 23 24 25 26 27 28];
+freqset = [0.25 0.5 1 2 4 8 16 32];
 figure        
 gain = [];
 
